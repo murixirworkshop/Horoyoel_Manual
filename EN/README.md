@@ -1,3 +1,6 @@
-# Poyomina Manual
-Welcome to the Poyomina manual! Please refer to the necessary items from the sidebar.
-<img src="../PoyominaManual_Pict/Top.png" alt="Top" style="zoom: 50%;" />
+# Horoyoel – Manual
+
+Welcome to the Horoyoel manual!  
+Please use the sidebar to navigate to the section you need.
+
+![IIkanjiPict](/Manual_Pict/IIkanjiPict.png)
