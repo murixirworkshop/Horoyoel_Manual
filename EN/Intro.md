@@ -1,10 +1,10 @@
 # Introduction
 - Please refer to the following for the avatar’s terms of use:<br>
   
-  <a href="../License/20250908110914vn3license_ja.pdf" target="_blank">利用規約 (日本語)</a><br>
-  <a href="../License/20250908110914vn3license_en.pdf" target="_blank">Terms of Use (English)</a><br>
-  <a href="../License/20250908110914vn3license_ko.pdf" target="_blank">이용약관 (한국어)</a><br>
-  <a href="../License/20250908110914vn3license_zh.pdf" target="_blank">使用条款 (中文)</a><br>
+    <a href="License/20260430114804vn3license_ja.pdf" target="_blank">利用規約 (日本語)</a><br>
+    <a href="License/20260430114804vn3license_en.pdf" target="_blank">Terms of Use (English)</a><br>
+    <a href="License/20260430114804vn3license_ko.pdf" target="_blank">이용약관 (한국어)</a><br>
+    <a href="License/20260430114804vn3license_zh.pdf" target="_blank">使用条款 (中文)</a><br>
   
   
 
