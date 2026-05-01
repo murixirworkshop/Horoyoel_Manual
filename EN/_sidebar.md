@@ -2,4 +2,8 @@
 - [Setup Guide](Setup.md)
 - [Basic Usage](usage.md)
 - [Modification Guide](ModificationGuide.md)
-- [日本語](../README.md)
+
+---
+
+- 🌐 Language
+  - [🇯🇵 日本語](../)
