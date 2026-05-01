@@ -3,8 +3,9 @@
 <head>
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
-  <title>Poyomina Manual</title>
+  <title>Horoyoel Manual (EN)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Docsify theme -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
 </head>
@@ -13,13 +14,19 @@
 
   <script>
     window.$docsify = {
-      name: 'Poyomina Manual',
+      name: 'Horoyoel Manual (EN)',
       repo: '',
       loadSidebar: true,
-      subMaxLevel: 3,  // Depth of subheadings shown in the sidebar
-      maxLevel: 3      // Sidebar expansion depth
+      auto2top: true,
+
+      // 👇 これが重要
+      relativePath: true,
+
+      subMaxLevel: 3,
+      maxLevel: 3
     }
   </script>
+
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
 </html>
