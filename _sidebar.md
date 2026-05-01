@@ -6,4 +6,4 @@
 ---
 
 - 🌐 Language
-  - [English](EN/)
+  -   \- [🇺🇸 English](#/EN/)
