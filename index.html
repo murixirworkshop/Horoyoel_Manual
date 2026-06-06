@@ -5,8 +5,28 @@
   <meta charset="UTF-8">
   <title>Horoyoel Manual</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+
+  <style>
+    .breadcrumb {
+      margin-bottom: 1.2rem;
+      font-size: 14px;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    .breadcrumb a {
+      color: #42b983;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body>
   <div id="app">Loading...</div>
 
@@ -17,8 +37,52 @@
       loadSidebar: true,
       auto2top: true,
       subMaxLevel: 3,
-      maxLevel: 3
-    }
+      maxLevel: 3,
+
+      plugins: [
+        function (hook, vm) {
+
+          hook.beforeEach(function (content) {
+
+            const route = vm.route.file || '';
+
+            const pageNames = {
+              'README.md': 'ホーム',
+              'Intro.md': 'ホーム',
+              'Setup.md': '導入方法',
+              'usage.md': '基本操作',
+              'ModificationGuide.md': '改変ガイド'
+            };
+
+            const currentPage =
+              pageNames[route] ||
+              route.replace('.md', '') ||
+              'ホーム';
+
+            let breadcrumb = '';
+
+            if (
+              route === '' ||
+              route === 'README.md' ||
+              route === 'Intro.md'
+            ) {
+              breadcrumb =
+                '<div class="breadcrumb">🏠 ホーム</div>';
+            } else {
+              breadcrumb =
+                '<div class="breadcrumb">' +
+                '<a href="#/">🏠 ホーム</a>' +
+                ' &gt; ' +
+                currentPage +
+                '</div>';
+            }
+
+            return breadcrumb + content;
+          });
+
+        }
+      ]
+    };
   </script>
 
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
