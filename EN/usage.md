@@ -50,7 +50,7 @@ FaceEmo allows you to select one of four expression sets.
 | :----------------------------------------: |
 | ![Emotion_2](../Manual_Pict/Emotion_2.png) |
 | ![Emotion_3](../Manual_Pict/Emotion_3.png) |
-| ![Emotion_4](../Manual_Pict/Emotion_4.png) |
+|                                            |
 
 ---
 
