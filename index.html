@@ -10,10 +10,9 @@
 
   <style>
     .breadcrumb {
-      margin-bottom: 1.2rem;
+      margin-bottom: 20px;
       font-size: 14px;
       color: #888;
-      line-height: 1.4;
     }
 
     .breadcrumb a {
@@ -40,9 +39,9 @@
       maxLevel: 3,
 
       plugins: [
-        function (hook, vm) {
+        function(hook, vm) {
 
-          hook.beforeEach(function (content) {
+          hook.afterEach(function(html, next) {
 
             const route = vm.route.file || '';
 
@@ -54,12 +53,7 @@
               'ModificationGuide.md': '改変ガイド'
             };
 
-            const currentPage =
-              pageNames[route] ||
-              route.replace('.md', '') ||
-              'ホーム';
-
-            let breadcrumb = '';
+            let breadcrumb;
 
             if (
               route === '' ||
@@ -73,11 +67,11 @@
                 '<div class="breadcrumb">' +
                 '<a href="#/">🏠 ホーム</a>' +
                 ' &gt; ' +
-                currentPage +
+                (pageNames[route] || route.replace('.md', '')) +
                 '</div>';
             }
 
-            return breadcrumb + content;
+            next(breadcrumb + html);
           });
 
         }
