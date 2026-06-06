@@ -13,6 +13,7 @@
       margin-bottom: 20px;
       font-size: 14px;
       color: #888;
+      line-height: 1.5;
     }
 
     .breadcrumb a {
@@ -36,49 +37,84 @@
       loadSidebar: true,
       auto2top: true,
       subMaxLevel: 3,
-      maxLevel: 3,
-
-      plugins: [
-        function(hook, vm) {
-
-          hook.afterEach(function(html, next) {
-
-            const route = vm.route.file || '';
-
-            const pageNames = {
-              'README.md': 'ホーム',
-              'Intro.md': 'ホーム',
-              'Setup.md': '導入方法',
-              'usage.md': '基本操作',
-              'ModificationGuide.md': '改変ガイド'
-            };
-
-            let breadcrumb;
-
-            if (
-              route === '' ||
-              route === 'README.md' ||
-              route === 'Intro.md'
-            ) {
-              breadcrumb =
-                '<div class="breadcrumb">🏠 ホーム</div>';
-            } else {
-              breadcrumb =
-                '<div class="breadcrumb">' +
-                '<a href="#/">🏠 ホーム</a>' +
-                ' &gt; ' +
-                (pageNames[route] || route.replace('.md', '')) +
-                '</div>';
-            }
-
-            next(breadcrumb + html);
-          });
-
-        }
-      ]
+      maxLevel: 3
     };
   </script>
 
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+  <script>
+    function updateBreadcrumb() {
+
+      const oldBreadcrumb = document.querySelector('.breadcrumb');
+      if (oldBreadcrumb) {
+        oldBreadcrumb.remove();
+      }
+
+      const content = document.querySelector('.content article');
+
+      if (!content) {
+        return;
+      }
+
+      const hash = location.hash.toLowerCase();
+
+      let currentPage = '';
+
+      if (
+        hash === '' ||
+        hash === '#/' ||
+        hash.includes('intro')
+      ) {
+        currentPage = 'ホーム';
+      }
+      else if (hash.includes('setup')) {
+        currentPage = '導入方法';
+      }
+      else if (hash.includes('usage')) {
+        currentPage = '基本操作';
+      }
+      else if (hash.includes('modificationguide')) {
+        currentPage = '改変ガイド';
+      }
+      else {
+        currentPage = 'ホーム';
+      }
+
+      const breadcrumb = document.createElement('div');
+      breadcrumb.className = 'breadcrumb';
+
+      if (currentPage === 'ホーム') {
+        breadcrumb.innerHTML = '🏠 ホーム';
+      } else {
+        breadcrumb.innerHTML =
+          '<a href="#/">🏠 ホーム</a> &gt; ' +
+          currentPage;
+      }
+
+      const firstHeading = content.querySelector('h1');
+
+      if (firstHeading) {
+        firstHeading.parentNode.insertBefore(
+          breadcrumb,
+          firstHeading
+        );
+      } else {
+        content.prepend(breadcrumb);
+      }
+    }
+
+    function waitForDocsify() {
+      updateBreadcrumb();
+
+      setTimeout(updateBreadcrumb, 100);
+      setTimeout(updateBreadcrumb, 300);
+      setTimeout(updateBreadcrumb, 1000);
+    }
+
+    window.addEventListener('load', waitForDocsify);
+    window.addEventListener('hashchange', waitForDocsify);
+  </script>
+
 </body>
 </html>
