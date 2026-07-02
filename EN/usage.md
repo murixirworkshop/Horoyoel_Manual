@@ -17,10 +17,6 @@ Horoyoel’s menu is structured as shown below.
 BodyMenu includes the following options:
 
 - **Bsize**: Adjusts chest size. Default is 45%.
-- **Bsize_Step2**：Adjusts chest size. Default is 0%。
-- **Chubby_Belly**：Makes the belly slightly chubbier.
-- **Chubby_Spine**：Makes the torso slightly chubbier.
-- **Chubby_Back**：Makes the back slightly chubbier.
 - **ClawToggle**: Toggles claws on and off.
 - **ClawAuto**: When enabled, you can toggle the claws without opening the menu by placing both hands in front of the face and performing the gesture sequence Fist → Open.
 

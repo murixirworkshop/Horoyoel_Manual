@@ -12,10 +12,10 @@ The purpose of each folder is described in the right column.
 | `Horoyoel`      | Contains configured presets.<br>`Horoyoel_PresetA`: Horoyoel wearing the angel outfit<br>`Horoyoel_PresetR`: Horoyoel wearing roomwear |
 | `01_FBX`        | Contains the main model FBX files. These are the base files for all Prefabs.<br>If you are not sure how to use them, do not modify them. |
 | `02_Materials`  | Contains materials based on lilToon.<br>Textures are also included here. |
-| `03_Animations` | Contains Animator Controllers and animation files.<br>From version 1.04, pre-configured animations are available under /FaceEmotions_ExtentionPack.<br />Simply drop them to the FaceEmo dialogue.<br />![Mod07](../Manual_Pict/Mod07.png) |
+| `03_Animations` | Contains Animator Controllers and animation files.           |
 | `04_Motions`    | Contains AFK motions.                                        |
 | `05_Menu`       | Contains menu assets for each Prefab.                        |
-| `10_Prefabs`    | Contains individual Prefabs that make up Horoyoel.<br>`HoroHalo`: Halo and angel wings. Add this to the Horoyoel base Prefab to complete setup. MA configured.<br>`Horoyoel`: Horoyoel base body. Expressions configured.<br>`Horoyoel_Flat`: Horoyoel’s base body. Expressions configured. Flat chest.<br>`Horoyoel_AW`: Angel outfit. Add this to the Horoyoel base Prefab to dress the avatar. MA configured.<br>`Horoyoel_RW`: Roomwear. Add this to the Horoyoel base Prefab to dress the avatar. MA configured.<br>`SakePackage`: Sake bottle. Add this to the Horoyoel base Prefab to complete setup. MA configured.<br>`EyeColorChange`: `SakePackage`: Add this to the base Prefab in the same way as an outfit. MA configured.<br/> |
+| `10_Prefabs`    | Contains individual Prefabs that make up Horoyoel.<br>`HoroHalo`: Halo and angel wings. Add this to the Horoyoel base Prefab to complete setup. MA configured.<br>`Horoyoel`: Horoyoel base body. Expressions configured.<br>`Horoyoel_AW`: Angel outfit. Add this to the Horoyoel base Prefab to dress the avatar. MA configured.<br>`Horoyoel_RW`: Roomwear. Add this to the Horoyoel base Prefab to dress the avatar. MA configured.<br>`SakePackage`: Sake bottle. Add this to the Horoyoel base Prefab to complete setup. MA configured. |
 
 ---
 
@@ -23,16 +23,12 @@ The purpose of each folder is described in the right column.
 
 Horoyoel uses the following Prefab structure.
 
-All Prefabs are Modular Avatar configured.  
+All Prefabs except `Horoyoel.prefab` itself are Modular Avatar configured.  
 You can implement them simply by dragging and dropping them onto the base body.
 
-Use `Horoyoel.prefab` or `Horoyoel_Flat.prefab` as the base for modifications.
+Use `Horoyoel.prefab` as the base for modifications.
 
 ![Mod02](../Manual_Pict/Mod02.png)
-
-From  V1.04, a Prefab has been added that allows you to easily change the eye color. Simply add it to Horoyoel.prefab, and the eye texture will be changed.
-
-![Mod06](../Manual_Pict/Mod06_eye.png)
 
 ---
 
@@ -56,9 +52,9 @@ Below is the structure of `Horoyoel.prefab`.
 | No.  | Component                                        | Description                                                  |
 | ---- | ------------------------------------------------ | ------------------------------------------------------------ |
 | (1)  | Action Layer in Horoyoel - VRC Avatar Descriptor | Only the AFK motion is replaced in the Action Layer.         |
-| (2)  | FX Layer in Horoyoel - VRC Avatar Descriptor     | The animations in the FX Layer are dummy animations and contain empty animation clip.<br /> |
+| (2)  | FX Layer in Horoyoel - VRC Avatar Descriptor     | The FX Layer includes animation controls for chest size adjustment and claw toggling.<br>If you want to directly specify body shape or claw visibility from the mesh, remove the FX Layer here. |
 | (3)  | PhysBones                                        | Contains VRC PhysBone settings, Colliders, and auxiliary bone settings.<br><br>Removing this may break joint movement. |
-| (4)  | BodyMenu                                         | This is a menu for adjusting chest size and toggling claw.<br />Bsize_Step1, Bsize_Step2, Chubby_Belly, Chubby_Spine, Chubby_Back, and ClawToggle also include dedicated animations. You can remove these animations by deleting the corresponding GameObjects from the Prefab. If you want to set the body shape directly from the Body2 mesh, please also delete the corresponding BodyMenu GameObject. The ClawAuto animation is included on the ClawToggle side. |
+| (4)  | BodyMenu                                         | Menu for chest size adjustment and claw settings.<br>If you remove this, also remove the FX Layer described in (2). |
 | (5)  | FaceEmoPrefab                                    | Contains animations for expression settings.<br>You can remove expressions by deleting this. |
 
 ![Mod05](../Manual_Pict/Mod05.png)
