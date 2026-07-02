@@ -12,18 +12,24 @@
 | `Horoyoel`      | **設定済みプリセット**が入っています。<br />Horoyoel_PresetA　 (天使の服のホロヨエル)<br />Horoyoel_PresetR　(部屋着のホロヨエル) |
 | `01_FBX`        | **モデルFBXファイル本体が入っています**。すべてのPrefabのベースとなります。<br />使用方法がわからない場合は変更しないでください。 |
 | `02_Materials`  | **マテリアル格納フォルダ**。lilToonベースで構成されています。<br />**テクスチャ**もここに含まれています。 |
-| `03_Animations` | **Animator ControllerとAnimationファイルが含まれます**。<br> |
+| `03_Animations` | **Animator ControllerとAnimationファイルが含まれます**。<br>V1.04から設定済み表情アニメーションを /FaceEmotions_ExtentionPack　に追加しました。<br />FaceEmoのダイアログ等に読み込んで表情をカスタマイズできます。<br />![Mod07](./Manual_Pict/Mod07.png) |
 | `04_Motions`    | AFKモーションが含まれます。                                  |
 | `05_Menu`       | 各Prefab毎のメニュー群が含まれます。                         |
-| `10_Prefabs`    | ホロヨエルを構成する個別のPrefabが含まれています。<br />HoroHalo：ヘイローと天使の翼。ホロヨエルの素体Prefabに入れることで設定完了。（MA設定済み）<br />Horoyoel：ホロヨエルの素体。表情設定済み。<br />Horoyoel_AW：天使の服。ホロヨエルの素体Prefabに入れることで着せ替え完了。（MA設定済み）<br />Horoyoel_RW：部屋着。ホロヨエルの素体Prefabに入れることで着せ替え完了。（MA設定済み）<br />SakePackage：日本酒。ホロヨエルの素体Prefabに入れることで設定完了。（MA設定済み）<br /> |
+| `10_Prefabs`    | ホロヨエルを構成する個別のPrefabが含まれています。<br>HoroHalo：ヘイローと天使の翼。ホロヨエルの素体Prefabに入れることで設定完了。（MA設定済み）<br>Horoyoel：ホロヨエルの素体。表情設定済み。<br>Horoyoel_Flat：ホロヨエルの素体。表情設定済み。おっぱいがない。<br>Horoyoel_AW：天使の服。ホロヨエルの素体Prefabに入れることで着せ替え完了。（MA設定済み）<br>Horoyoel_RW：部屋着。ホロヨエルの素体Prefabに入れることで着せ替え完了。（MA設定済み）<br>SakePackage：日本酒。ホロヨエルの素体Prefabに入れることで設定完了。（MA設定済み）<br>EyeColorChange : 目の色を簡単に変更できるPrefabです。衣装のように素体に入れてください。（MA設定済み）<br /> |
 
 ## プリセット構成
 
 ホロヨエルは以下のようなPrefab構成になっています。
-Horoyoel.prefab(素体)以外のPrefabはすべてMA設定済みで、素体にドラッグ＆ドロップするだけで実装できます。
-改変のベースにはHoroyoel.prefabを使用してください。
+PrefabはすべてMA設定済みで、素体にドラッグ＆ドロップするだけで実装できます。
+改変のベースにはHoroyoel.prefabもしくはHoroyoel_Flat.prefabを使用してください。
 
 ![Mod02](Manual_Pict\Mod02.png)
+
+V1.04から、目の色を簡単に変えられるPrefabが追加になりました。Horoyoel.prefabに追加するだけで目のテクスチャが変わります。
+
+![Mod06](Manual_Pict\Mod06_eye.png)
+
+
 
 ### 💡軽量化Tip💡
 
@@ -44,9 +50,9 @@ MA対応のため、各衣装にヒューマノイドボーンが相当数含ま
 | 番号 | コンポーネント                                  | 説明                                                         |
 | ---- | ----------------------------------------------- | ------------------------------------------------------------ |
 | (1)  | Horoyoel - VRC Avatar descriptor内のActionLayer | ActionレイヤーではAFKモーションのみ差し替えられています。<br /> |
-| (2)  | Horoyoel - VRC Avatar descriptor内のFXLayer     | FXレイヤーのアニメーションは胸のサイズ調整、爪の出し入れの制御が含まれています。<br />体型や爪の有無をメッシュから直接指定する場合はFXレイヤーをここから削除してください。 |
+| (2)  | Horoyoel - VRC Avatar descriptor内のFXLayer     | FXレイヤーのアニメーションはダミーで、空っぽのアニメーションが含まれています。<br /> |
 | (3)  | Physbones                                       | VRCPhysboneの設定、Collider、および補助ボーンの設定が含まれます。<br /><br />削除すると関節部の動きが壊れる可能性があります。 |
-| (4)  | BodyMenu                                        | 胸のサイズ調整、爪の出し入れ設定用のメニューです。削除する場合(2)のFXLayerも削除してください。 |
+| (4)  | BodyMenu                                        | 胸のサイズ調整、爪の出し入れ設定用のメニューです。<br />Bsize_Step1, Bsize_Step2, Chubby_Belly, Chubby_Spine, Chubby_BackおよびClawToggleには専用のアニメーションも含まれています。これらのゲームオブジェクトをPrefabから削除することでアニメーションも取り除くことができます。Body2のメッシュから直接体型を指定する場合は該当するBodyMenuのゲームオブジェクトも削除してください。ClawAutoのアニメーションはClawToggle側に含まれています。 |
 | (5)  | FaceEmoPrefab                                   | 表情設定用のアニメーションが含まれます。<br />これを削除することで表情を削除できます。 |
 |      |                                                 |                                                              |
 
